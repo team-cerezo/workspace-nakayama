@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 export default ({ projectId }) => (
     <div>
         <h1>Project {projectId}</h1>

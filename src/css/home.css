@@ -1,0 +1,16 @@
+table, th, td {
+    line-height: 2;
+    border-collapse: collapse;
+    border: 1px solid dimgray;
+    background-color: #ffffff;
+  }
+  
+  table.projects th {
+    background-color:dimgray;
+    color:#ffffff;
+    text-align: center;
+  }
+
+  table.projects tr:nth-child(odd) {
+    background-color: lightgray;
+}

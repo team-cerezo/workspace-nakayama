@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { updateProjectName,addNewProject, updateDescription, showProjects } from '../action/actions';
+import '../css/home.css'
 
 export default ({ project,addedProjects }) => (
-    <div>
+    <div onload={showProjects()}>
+
         <h1>Home</h1>
         <ul>
             <li>TODO プロジェクトのデータを保持するStoreを作る</li>
@@ -18,15 +20,24 @@ export default ({ project,addedProjects }) => (
             onChange={event => updateDescription(event.target.value)} />
         <button onClick={event => addNewProject(project.name,project.description)}>add</button>
 
-        <button onClick={event => showProjects()}>一覧表示</button>
-
-        <ul>
+        <table class="projects">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>PJ名</th>
+                    <th>説明</th>
+                </tr>
+            </thead>
             {addedProjects.map(addedproject => (
-                <li key={addedproject.id}>
-                    <span>{addedproject.name}</span>
-                </li>
+                <tbody>
+                    <tr>
+                        <td>{addedproject.id}</td>
+                        <td>{addedproject.name}</td>
+                        <td>{addedproject.name}</td>
+                    </tr>
+                </tbody>
             ))}
-        </ul>
+        </table>
 
     </div>
 );

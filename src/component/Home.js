@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { updateProjectName,addNewProject, updateDescription, showProjects } from '../action/actions';
 
-const AddedProject = ({ name,description }) => (<h1>{ name }：{description}</h1>);
-
-export default ({ project }) => (
+export default ({ project,addedProjects }) => (
     <div>
         <h1>Home</h1>
         <ul>
@@ -20,6 +18,15 @@ export default ({ project }) => (
             onChange={event => updateDescription(event.target.value)} />
         <button onClick={event => addNewProject(project.name,project.description)}>add</button>
 
-        <AddedProject name={project.name} description={project.description} />
+        <button onClick={event => showProjects()}>一覧表示</button>
+
+        <ul>
+            {addedProjects.map(addedproject => (
+                <li key={addedproject.id}>
+                    <span>{addedproject.name}</span>
+                </li>
+            ))}
+        </ul>
+
     </div>
 );

@@ -23,26 +23,28 @@ export const addNewProject = (name,description) => {
             'X-Bouncr-Credential': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJUZXN0IHVzZXIxIiwicGVybWlzc2lvbnMiOlsicHJvamVjdDpyZWFkIiwicHJvamVjdDpjcmVhdGUiLCJwcm9qZWN0OnVwZGF0ZSIsInByb2plY3Q6ZGVsZXRlIl19.lfegO1IXi1hlBETymqw8nqRaq7POrnriJU_5YK2R-PI'
         },
         body})
-        .then(responce => responce.text())
-        .then(newProject => {
+        .then(() => {
             RascaloidDispatcher.dispatch({
                 type: actionTypes.ADD_NEW_PROJECT,
-                payload: {name,description}
+                payload: { name: name,description : description }
             });
         })
 };
 
-export const showProjects = (name,description) => {
-    const body = new URLSearchParams({ name,description });
+export const showProjects = () => {
     fetch('/projects',{
         method: 'GET',
-        body
+        headers:{
+            'accept': 'application/json',
+            'X-Bouncr-Credential': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJUZXN0IHVzZXIxIiwicGVybWlzc2lvbnMiOlsicHJvamVjdDpyZWFkIiwicHJvamVjdDpjcmVhdGUiLCJwcm9qZWN0OnVwZGF0ZSIsInByb2plY3Q6ZGVsZXRlIl19.lfegO1IXi1hlBETymqw8nqRaq7POrnriJU_5YK2R-PI'
+        }
     })
-        .then(responce => responce.text())
-        .then(newProject => {
+        .then(responce => responce.json())
+        .then(projects => {
+            //[{name:}, {}, {},]
             RascaloidDispatcher.dispatch({
                 type: actionTypes.SHOW_PROJECTS,
-                payload: {name}
+                payload: projects
             });
         })
 };

@@ -6,7 +6,7 @@ import actionTypes from '../action/action-types';
 
 class ProjectStore extends ReduceStore{
     getInitialState() {
-        return {name:null,description:null};
+        return {name:null ,description:null};
     }
 
     reduce(state, { type, payload }) {
@@ -23,7 +23,7 @@ class ProjectStore extends ReduceStore{
                 return {...state,description};
                 
             default:
-                return {...state};
+                return state;
         }
     }
 }

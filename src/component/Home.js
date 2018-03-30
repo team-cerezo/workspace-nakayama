@@ -33,7 +33,7 @@ export default ({ project,addedProjects }) => (
                     <tr>
                         <td>{addedproject.id}</td>
                         <td>{addedproject.name}</td>
-                        <td>{addedproject.name}</td>
+                        <td>{addedproject.description}</td>
                     </tr>
                 </tbody>
             ))}

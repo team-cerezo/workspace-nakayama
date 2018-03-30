@@ -17,7 +17,7 @@ export const updateDescription = (description) => {
 
 export const addNewProject = (name,description) => {
     const body = new URLSearchParams({ name,description });
-    fetch('/projects',{
+    fetch('http://localhost:3000/projects',{
         method: 'POST',
         headers:{
             'X-Bouncr-Credential': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJUZXN0IHVzZXIxIiwicGVybWlzc2lvbnMiOlsicHJvamVjdDpyZWFkIiwicHJvamVjdDpjcmVhdGUiLCJwcm9qZWN0OnVwZGF0ZSIsInByb2plY3Q6ZGVsZXRlIl19.lfegO1IXi1hlBETymqw8nqRaq7POrnriJU_5YK2R-PI'
@@ -32,7 +32,7 @@ export const addNewProject = (name,description) => {
 };
 
 export const showProjects = () => {
-    fetch('/projects',{
+    fetch('http://localhost:3000/projects',{
         method: 'GET',
         headers:{
             'accept': 'application/json',
